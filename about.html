@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Enhancing Interoperability</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sticky Vertical Navigation Bar -->
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bpmn_model.html">BPMN Model</a></li>
+        <li><a href="etl_pipeline.html">ETL Pipeline</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="team_contributions.html">Team Contributions</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="https://github.iu.edu/shurmad/group4_health_info_standards" class="github-btn" target="_blank">
+        <img src="images/github_image.png" class="github-icon" alt="GitHub Logo">
+        <span>View Project on GitHub</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- About Section -->
+    <section id="about" class="section-bg">
+      <h1>About</h1>
+      <img src="images/about_image.png" alt="About the Project" class="section-image">
+      <h2>Team Overview</h2>
+      <p>HealthSync Innovators is a team of students dedicated to advancing healthcare interoperability through technology. We developed an ETL pipeline that integrates FHIR-based systems (OpenEMR and Primary Care EHR) and supports legacy HL7 v2 systems, addressing real-world interoperability challenges.</p>
+      <h3>Team Members</h3>
+      <p style="list-style-position: inside; padding-left: 5em;">Dr. Aditi Elizabath George</p>
+      <p style="list-style-position: inside; padding-left: 5em;">Dr. FNU Sheikh Azam Uddin</p>
+      <p style="list-style-position: inside; padding-left: 5em;">Dr. Minoti Sanjay Kedare</p>
+      <p style="list-style-position: inside; padding-left: 5em;">Dr. Moukthika Reddy Kandala</p>
+      <p style="list-style-position: inside; padding-left: 5em;">Dr. Swati Hurmade</p>
+      <h2>Presentation Content</h2>
+      <h3>ETL Pipeline Demonstration</h3>
+      <p style="margin-top: 25px; margin-bottom: 10px"><strong>Extraction</strong></p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   Used Python requests to query OpenEMR FHIR API (Task 1), e.g., <code>GET /Patient?name=Criselda&gender=female</code>, retrieving patient data (name: <code>Criselda Dorothea Johnson</code>, <code>birth date: 1968-06-29</code>)</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 25px">•   Extracted conditions from <code>disorder_condition.json</code>, including <code>Viral sinusitis</code> and <code>Chronic kidney disease</code>, with error handling for status codes.</p>
+      <p style="margin-top: 25px; margin-bottom: 10px"><strong>Transformation</strong></p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   Task 1: Mapped a condition to a parent SNOMED term (<code>"Sinusitis"</code>, code <code>"36971009"</code>) with body site <code>"Nasal sinus structure"</code>.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   Task 2: Identified a child term (<code>"Viral sinusitis"</code>, code <code>"444814009"</code>) from the same body site.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 25px">•   Handled missing data with defaults (e.g., <code>"DefaultDistrict"</code> in the patient address).</p>
+      <p style="margin-top: 25px; margin-bottom: 10px"><strong>Loading</strong></p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   Posted Patient (<code>patient_details_payload.json</code>) and Condition (<code>parent_condition_payload.json</code>, <code>child_condition_payload.json</code>) resources to Primary Care EHR (Tasks 1, 2), confirmed by <code>status code 201</code>.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   Created Blood Pressure Observation (Task 3, <code>122/83 mmHg</code>) and <code>Tooth Extraction</code> Procedure (Task 4), both successfully posted.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 25px">•   Validated resources separately using meta profile URLs (e.g., <code>http://example.org/StructureDefinition/my-patient-profile</code>).</p>
+      <h2>Interoperability Demonstration</h2>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   <strong>FHIR to HL7 v2: </strong>Task 5 generated an <code>ADT_A01</code> message using <code>hl7apy</code>, mapping FHIR data from <code>patient_details_payload.json</code> and <code>parent_condition_payload.json</code> to segments (e.g., <code>DG1 with ICD-10 code "J32.9"</code> for <code>Sinusitis</code>). The output included <code>MSH, PID, PV1, and DG1</code> segments, saved as a text file.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 25px">•   <strong>Legacy Support: </strong> This transformation bridges FHIR and HL7 v2 workflows for legacy system compatibility.</p>
+
+      <h2>Insights and Visualization</h2>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   <strong>Key Insight: </strong> High prevalence of respiratory conditions (e.g., <code>Viral sinusitis</code>) and chronic conditions (e.g., <code>Chronic kidney disease</code>) in <code>disorder_condition.json</code>, visualized in a bar chart.
+</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   <strong>Challenges: </strong>Terminology mismatches (<code>hypertriglyceridemia</code> vs. <code>hypertriglyceridaemia</code>), missing finding site data, and frequent refresh token failures requiring new access tokens.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 25px">•   <strong>Best Practices: </strong>Modular coding, robust error handling, and clear documentation.</p>
+      <h2>Images</h2>
+      <h3>BPMN Diagram:</h3>
+      <a style="margin-left: 8em; margin-top: 10px; margin-bottom: 20px;"href="https://modeler.camunda.io/share/69d169f8-1eea-4abd-b7e4-14b0d500d14b" target="_blank">
+        <button style="padding: 10px 20px; margin-top: 10px; margin-bottom: 30px; background-color: #0072ff; color: white; border: none; border-radius: 8px; font-size: 16px;">View BPMN Diagram</button>
+      </a>
+      
+      <h3>Bar Chart:</h3>
+      <p style="margin-top: 25px; margin-bottom: 25px;">Two bar charts were generated: the first shows the distribution of patients by gender, and the second shows the distribution of patients by birth decade. From the gender chart, we observe a higher proportion of female patients <code>(n=~63)</code> compared to male patients <code>(n=~38)</code>, indicating a gender imbalance in the current OpenEMR dataset. The birth decade distribution reveals that most patients were born between the 1960s and 2000s, with peaks around the 1990s and 1970s, suggesting that the patient population is predominantly middle-aged to younger adults. These insights help us better understand the demographic composition of the clinical database and guide further analysis, such as condition prevalence by age or gender.</p>
+      <div class="image-row">
+        <img src="images/insights1.png" alt="First" class="section-image">
+        <img src="images/insights2.png" alt="Second" class="section-image">
+      </div>
+       <h2>Closing</h2>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 10px">•   <strong>Value to Healthcare Organizations: </strong>The ETL pipeline enhances interoperability, reduces manual data processing, and supports clinical decisions with standardized data, as seen in the accurate transfer of patient and condition data.</p>
+      <p style="list-style-position: inside; padding-left: 2em; margin-top: 10px; margin-bottom: 25px">•   <strong>Q&A: </strong>We invite questions on pipeline design, challenges, or applications.</p>
+      
+      <p style="margin-bottom: 60px;"></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Enhancing Interoperability. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

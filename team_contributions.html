@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Contributions - Enhancing Interoperability</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Sticky Vertical Navigation Bar -->
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="bpmn_model.html">BPMN Model</a></li>
+        <li><a href="etl_pipeline.html">ETL Pipeline</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="team_contributions.html">Team Contributions</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a href="https://github.iu.edu/shurmad/group4_health_info_standards" class="github-btn" target="_blank">
+        <img src="images/github_image.png" class="github-icon" alt="GitHub Logo">
+        <span>View Project on GitHub</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- Team Contributions Section -->
+    <section id="team">
+      <h1>Team Contributions</h1>
+      <table>
+        <tr>
+          <th>Team Member</th>
+          <th>Role</th>
+          <th>Contributions</th>
+          <th>Reflections</th>
+        </tr>
+        <tr>
+          <td>Aditi Elizabath George</td>
+          <td>ETL Developer & BPMN Modeler</td>
+          <td>As the ETL Developer and BPMN Modeler, I led Task 3, which involved implementing logic to post blood pressure observations into the Primary Care EHR FHIR system using validated FHIR-compliant JSON. I ensured accurate linkage to patient records and included key clinical data such as including LOINC codes and finding sites. I also co-developed the BPMN model to clearly represent our ETL workflow, ensuring logical placement of events and tasks. Beyond Task 3, I assisted my teammates in other tasks, provided input, and resolved any issues. I also helped identifying a major issue with disorder data not being posted correctly, tested multiple times to confirm the issue, which was resolved later. I also contributed in drafting and refining the project website content.
+</td>
+          <td>This project helped me understand how FHIR-based systems share patient data through an ETL pipeline and why validation is crucial. I learned how to build complete FHIR resources with proper metadata and fix errors when data didn’t post correctly. Working through those issues taught me what to look for and how clean, well-structured data supports accurate healthcare communication. I also saw how easily mistakes in formatting or missing fields can cause real problems. Separately, the BPMN model helped me visualize how referrals and follow-ups happen between clinics and hospitals in a clear, step-by-step flow.</td>
+        </tr>
+        <tr>
+          <td>FNU Sheikh Azam Uddin</td>
+          <td>ETL Engineer & Website Designer</td>
+          <td>As the ETL Engineer, I designed and implemented Task 5 to generate HL7 v2 ADT^A01 messages from FHIR‑based patient and condition resources, showcasing how FHIR can bridge legacy HL7 systems and drive improved interoperability in healthcare. I also guided teammates in debugging and optimizing their ETL scripts to ensure seamless FHIR integration across our pipeline, and as Website Designer, I built a responsive HTML/CSS site that clearly visualizes each ETL step and highlights FHIR’s role in unifying disparate clinical data sources.</td>
+          <td>Working on the complete ETL pipeline including FHIR extraction, transformation, loading, and HL7 message generation reinforced how FHIR standards can eliminate data silos and ensure seamless interoperability across healthcare systems. Designing the website to showcase these workflows demonstrated the importance of clear, FHIR‑driven visualizations in engaging clinicians and technical stakeholders alike.</td>
+        </tr>
+        <tr>
+          <td>Minoti Sanjay Kedare</td>
+          <td>Developer</td>
+          <td>Contributed to writing Python code for automating key tasks within the ETL process, focusing on improving the speed and accuracy of data processing. Created the Business Process Model and Notation (BPMN) model to visualize the ETL pipeline workflow. I completed Task 4, which involved creating and posting a Procedure resource to the Primary Care EHR FHIR server. This task required constructing a FHIR-compliant JSON document for procedures like Functional Endoscopic Sinus Surgery. Additionally, contributed to the data visualization part, including creating graphs for patient count by gender and patient count by birth decade, and thoroughly explained each step in the BPMN model to ensure a clear understanding of the process flow.</td>
+          <td>Writing Python code for Task 4 deepened my understanding of the FHIR API structure, including complex nested JSON formatting for clinical procedures. This task highlighted the importance of precise patient-resource linking. Building the BPMN model further strengthened my process visualization skills, providing clarity in task management and workflow optimization. Contributing to the data visualization component and BPMN explanation enhanced my ability to present data trends clearly and effectively.</td>
+        </tr>
+        <tr>
+          <td>Moukthika Reddy Kandala</td>
+          <td>Project Coordinator / ETL & Workflow Designer
+</td>
+          <td>Wearing multiple hats throughout the project, I co-designed the ETL pipeline tasks and BPMN workflow, contributing directly to the extraction, transformation, and validation of health data using FHIR standards. As Project Coordinator, I ensured each team member remained engaged across all phases by delegating tasks based on individual strengths, resolving blockers, and supporting documentation and content development for the project website. I also participated in the validation of FHIR resources to ensure compliance with custom profiles and contributed to data visualization by interpreting patient demographics for our analytical dashboard. My involvement spanned technical development, quality control, and communication, ensuring consistency and alignment across all deliverables.
+</td>
+          <td>This experience strengthened my practical understanding of FHIR-based data integration, clinical workflow modeling, and healthcare system interoperability. It also enhanced my leadership skills in managing cross-functional teams and balancing hands-on development with strategic coordination- key competencies for future roles in health informatics and digital health implementation.</td>
+        </tr>
+        <tr>
+          <td>Swati Hurmade</td>
+          <td>Team Leader & Backend ETL Developer</td>
+          <td>As a Backend ETL Developer, I focused on Tasks 1 and 2, which involved interacting with FHIR APIs to extract, transform, and load clinical data between OpenEMR and the Primary Care EHR FHIR system. I resolved key output issues in our code for the two tasks and developed logic to selectively retrieve disorder-related conditions from a patient’s medical history using structured filtering in Python. I also implemented the logic to fetch parent and child concept terms from the HERMES SNOMED API, extracted associated metadata such as finding site and verification status, and dynamically constructed validated FHIR-compliant JSON payloads to be posted to the destination Primary Care EHR FHIR system. By automating the linkage with the patient record, I ensured data consistency and semantic accuracy across the two systems.</td>
+          <td>This project really helped me understand how healthcare systems can talk to each other using FHIR. I learned how to carefully pull the right kind of data, like just the disorders, and how to build a proper FHIR resource that meets all requirements. It also showed me how important it is to use the right codes and metadata so the information stays meaningful when moved between systems. Fixing code issues and connecting different parts of the workflow gave me confidence in solving real-world problems. Overall, I now have a stronger understanding of how ETL works in healthcare and why clean, accurate data is so important when dealing with patient information.</td>
+        </tr>
+      </table>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Enhancing Interoperability. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
