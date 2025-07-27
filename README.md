@@ -31,5 +31,5 @@ The project architecture of the ETL pipeline for extracting, transforming, and l
 ## Project Website
 
 For more details, documentation, and to explore the project's workflow, visit the project website here:  
-[ETL Final Project Website](https://github.com/minotikedare/ETL-Pipeline-for-OpenEMR-to-FHIR-Integration) 
+[ETL Final Project Website](https://pages.github.iu.edu/shurmad/group4_health_info_standards/) 
 
